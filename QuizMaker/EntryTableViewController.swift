@@ -102,7 +102,7 @@ class EntryTableViewController: UITableViewController {
             if indexPath.row >= self.questions.count - 1{
                 self.questions.append(QuizEntry(question:"", answer:""))
             }
-            cell.configure(for: self.questions[indexPath.row])
+            cell.configure(for: self.questions[indexPath.row], at: indexPath.row+1)
             cell.delegate = self
             
             // Configure the cell...
