@@ -34,6 +34,7 @@
 		676B79A921F46365004A2B10 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		676B79AA21F46365004A2B10 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		676B79AB21F46365004A2B10 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		676B79AF21F46B62004A2B10 /* QuizMaker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuizMaker.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +71,7 @@
 		0742F02421F37F2C00B6780F /* QuizMaker */ = {
 			isa = PBXGroup;
 			children = (
+				676B79AF21F46B62004A2B10 /* QuizMaker.entitlements */,
 				0742F03721F39BAF00B6780F /* QuizMaker.swift */,
 				0742F02521F37F2C00B6780F /* AppDelegate.swift */,
 				0742F03B21F39EE000B6780F /* EntryTableViewController.swift */,
@@ -125,6 +127,11 @@
 				TargetAttributes = {
 					0742F02121F37F2C00B6780F = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -314,8 +321,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = QuizMaker/QuizMaker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2UVJLV4H48;
+				DEVELOPMENT_TEAM = KZDMSZY72Y;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
@@ -337,8 +345,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = QuizMaker/QuizMaker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2UVJLV4H48;
+				DEVELOPMENT_TEAM = KZDMSZY72Y;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",

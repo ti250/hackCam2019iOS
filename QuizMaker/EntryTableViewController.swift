@@ -58,11 +58,26 @@ class EntryTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(FBSDKAccessToken.current())
+        if FBSDKAccessToken.current() != nil{
+            self.userID = FBSDKAccessToken.current()?.userID
+            UserDefaults.standard.set(self.userID!, forKey: EntryConstants.userIDKey)
+        }
         userID = UserDefaults.standard.string(forKey: EntryConstants.userIDKey) ?? nil
         if userID != nil{
             self.navigationItem.rightBarButtonItem = nil
         }
+        else{
+            self.navigationItem.rightBarButtonItem!.customView = FBSDKLoginButton()
+        }
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if FBSDKAccessToken.current() != nil{
+            self.userID = FBSDKAccessToken.current()?.userID
+            UserDefaults.standard.set(self.userID!, forKey: EntryConstants.userIDKey)
+        }
     }
     
     // MARK: - Table view data source

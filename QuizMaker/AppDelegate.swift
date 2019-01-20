@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        print(FBSDKAccessToken.current())
         return true
     }
     
@@ -46,7 +47,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         let appId = FBSDKSettings.appID
-        if url.scheme != nil && url.scheme!.hasPrefix("fb\(appId)") && url.host ==  "authorize" {
+        print(url.scheme != nil)
+        if url.scheme != nil && url.scheme!.hasPrefix("fb"){
             return FBSDKApplicationDelegate.sharedInstance().application(app, open: url, options: options)
         }
         return false
