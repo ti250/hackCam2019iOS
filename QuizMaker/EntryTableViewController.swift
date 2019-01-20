@@ -70,6 +70,7 @@ class EntryTableViewController: UITableViewController {
         else{
             self.navigationItem.rightBarButtonItem!.customView = FBSDKLoginButton()
         }
+        print(self.userID)
         
     }
     
@@ -190,7 +191,7 @@ extension EntryTableViewController: UploadCellDelegate{
         let url = URL(string: "https://quiet-temple-14701.herokuapp.com/chatbot/quiz")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        try! request.httpBody = JSONEncoder().encode(RequestData(quiz_data: self.questions, set_id: "random", user_id: self.userID))
+        try! request.httpBody = JSONEncoder().encode(RequestData(quiz_data: self.questions.filter{$0.question != "" && $0.answer != ""}, set_id: "random", user_id: self.userID))
         let (data, response, error) = URLSession.shared.synchronouslyExecute(request)
         print(response)
     }
