@@ -182,6 +182,7 @@ extension EntryTableViewController: EntryTableViewCellDelegate{
 struct RequestData: Codable{
     var quiz_data:[QuizEntry]
     var set_id: String
+    var user_id: String?
 }
 
 extension EntryTableViewController: UploadCellDelegate{
@@ -189,7 +190,7 @@ extension EntryTableViewController: UploadCellDelegate{
         let url = URL(string: "https://quiet-temple-14701.herokuapp.com/chatbot/quiz")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        try! request.httpBody = JSONEncoder().encode(RequestData(quiz_data: self.questions, set_id: "random"))
+        try! request.httpBody = JSONEncoder().encode(RequestData(quiz_data: self.questions, set_id: "random", user_id: self.userID))
         let (data, response, error) = URLSession.shared.synchronouslyExecute(request)
         print(response)
     }
